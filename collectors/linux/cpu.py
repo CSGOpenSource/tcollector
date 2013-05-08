@@ -3,30 +3,33 @@ import subprocess, time, sys
 
 def main():
 
+	Interval = 15
 	State = dict()
 	PrevTS = 0
 	Tags = ['usr', 'sys', 'iow', 'idl']
+	Val = [0]*4
 	FieldLoc = [1,3,5,4]
 	while True:
+		CurrTS = time.time()
 		P = subprocess.Popen('cat /proc/stat'.split(), stdout=subprocess.PIPE)
 		Text = P.stdout.read()
-		CurrTS = time.time()
 		for Line in Text.decode().splitlines():
 			if Line.startswith('cpu '):
 				A = Line.split()
-				Key = A[0]
-				if Key in State:   #### Not first call
+				if 'usr' in State:   #### Not first call
+					Sum = 0
 					for i in range(len(Tags)):
-						Val = (float(A[FieldLoc[i]]) - State[Key][Tags[i]]) / (CurrTS-PrevTS)
-						sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), Val, Tags[i]))
+						Val[i] = (float(A[FieldLoc[i]]) - State[Tags[i]]) / (CurrTS-PrevTS)
+						Sum += Val[i]
+					for i in range(len(Tags)):
+						sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), 100.*Val[i]/Sum, Tags[i]))
 					sys.stdout.flush()
-				else:
-					State[Key] = dict()
 				for i in range(len(Tags)):
-					State[Key][Tags[i]] = float(A[FieldLoc[i]])
+					State[Tags[i]] = float(A[FieldLoc[i]])
 		P.wait()
 		PrevTS = CurrTS
-		time.sleep(15)
+		SleepT = Interval - (time.time()-CurrTS)
+		if SleepT > 0:  time.sleep(SleepT)
 
 	return
 

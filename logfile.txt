@@ -1,0 +1,148 @@
+2013-05-02 08:22:47,973 tcollector[11679] INFO: Loading config.py
+2013-05-02 08:22:47,979 tcollector[11679] INFO: Loading mysqlconf.py
+2013-05-02 08:22:47,985 tcollector[11679] WARNING: Tag "host" not specified, defaulting to emlab-lx1.
+2013-05-02 08:22:47,985 tcollector[11679] INFO: SenderThread startup complete
+2013-05-02 08:22:49,866 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:22:49,885 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:22:49,885 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:22:49,885 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:22:53,341 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:22:53,342 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:22:53,345 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:22:53,345 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:22:53,345 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:22:58,856 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:22:58,856 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:22:58,861 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:22:58,861 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:22:58,861 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:23:04,491 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:23:04,492 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:04,495 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:23:04,495 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:04,495 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:23:14,722 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:23:14,722 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:14,726 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:23:14,726 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:14,726 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:23:30,491 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:23:30,492 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:30,497 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:23:30,497 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:30,497 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:23:48,126 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:23:48,126 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:48,130 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:23:48,130 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:23:48,130 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:24:22,380 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:24:22,380 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:24:22,384 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:24:22,384 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:24:22,384 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:25:08,291 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:25:08,292 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:25:08,296 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:25:08,296 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:25:08,296 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:26:27,973 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:26:27,974 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:26:27,977 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:26:27,977 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:26:27,977 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:28:20,871 tcollector[11679] INFO: No more healthy hosts, retry with previously blacklisted
+2013-05-02 08:28:20,872 tcollector[11679] INFO: Selected connection: sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:28:20,876 tcollector[11679] WARNING: Connection attempt failed to sqtrhel-test01.csg.csgsystems.com:4242: [Errno 111] Connection refused
+2013-05-02 08:28:20,876 tcollector[11679] ERROR: Failed to connect to sqtrhel-test01.csg.csgsystems.com:4242
+2013-05-02 08:28:20,876 tcollector[11679] INFO: Blacklisting sqtrhel-test01.csg.csgsystems.com:4242 for a while
+2013-05-02 08:29:24,528 tcollector[11679] WARNING: shutting down, got signal 15
+2013-05-02 08:29:24,528 tcollector[11679] INFO: shutting down children
+2013-05-02 08:29:24,528 tcollector[11679] INFO: exiting
+2013-05-02 08:29:37,185 tcollector[11679] WARNING: shutting down, got signal 15
+2013-05-02 08:30:25,301 tcollector[11963] INFO: Loading config.py
+2013-05-02 08:30:25,303 tcollector[11963] INFO: Loading mysqlconf.py
+2013-05-02 08:30:25,304 tcollector[11963] WARNING: Tag "host" not specified, defaulting to emlab-lx1.
+2013-05-02 08:30:25,305 tcollector[11963] INFO: SenderThread startup complete
+2013-05-02 08:30:25,308 tcollector[11963] INFO: mem.py (interval=0) needs to be spawned
+2013-05-02 08:30:25,324 tcollector[11963] INFO: spawned mem.py (pid=11974)
+2013-05-02 08:30:25,324 tcollector[11963] INFO: net.py (interval=0) needs to be spawned
+2013-05-02 08:30:25,327 tcollector[11963] INFO: spawned net.py (pid=11975)
+2013-05-02 08:30:25,327 tcollector[11963] INFO: cpu.py (interval=0) needs to be spawned
+2013-05-02 08:30:25,330 tcollector[11963] INFO: spawned cpu.py (pid=11977)
+2013-05-02 08:30:25,330 tcollector[11963] INFO: disk.py (interval=0) needs to be spawned
+2013-05-02 08:30:25,343 tcollector[11963] INFO: spawned disk.py (pid=11978)
+2013-05-02 08:30:45,317 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:30:45,317 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:31:00,333 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 144
+2013-05-02 08:31:15,344 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 672
+2013-05-02 08:31:30,346 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 96
+2013-05-02 08:31:45,357 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 240
+2013-05-02 08:32:00,368 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 96
+2013-05-02 08:32:15,374 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 72
+2013-05-02 08:32:30,381 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 120
+2013-05-02 08:32:45,392 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 240
+2013-05-02 08:33:00,398 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:33:15,404 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 528
+2013-05-02 08:33:30,412 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 144
+2013-05-02 08:33:45,419 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 288
+2013-05-02 08:34:00,425 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 144
+2013-05-02 08:34:15,436 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:34:30,442 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 24
+2013-05-02 08:34:45,448 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 480
+2013-05-02 08:35:00,460 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 384
+2013-05-02 08:35:15,470 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3528
+2013-05-02 08:35:30,481 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3024
+2013-05-02 08:35:45,488 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2040
+2013-05-02 08:36:00,492 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3888
+2013-05-02 08:36:15,498 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2016
+2013-05-02 08:36:30,505 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2928
+2013-05-02 08:36:45,508 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2952
+2013-05-02 08:37:00,514 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3024
+2013-05-02 08:37:15,530 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2544
+2013-05-02 08:37:30,536 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2664
+2013-05-02 08:37:45,548 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3072
+2013-05-02 08:38:00,559 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2688
+2013-05-02 08:38:15,570 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3264
+2013-05-02 08:38:30,582 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 1992
+2013-05-02 08:38:45,589 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3960
+2013-05-02 08:39:00,595 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2256
+2013-05-02 08:39:15,601 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 4320
+2013-05-02 08:39:30,608 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 1872
+2013-05-02 08:39:45,619 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3240
+2013-05-02 08:40:00,630 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3648
+2013-05-02 08:40:15,644 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2880
+2013-05-02 08:40:25,941 tcollector[11963] INFO: Heartbeat (4 collectors running)
+2013-05-02 08:40:30,656 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3984
+2013-05-02 08:40:45,662 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2232
+2013-05-02 08:41:00,678 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3096
+2013-05-02 08:41:15,688 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2472
+2013-05-02 08:41:30,697 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2928
+2013-05-02 08:41:45,703 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3384
+2013-05-02 08:42:00,714 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2280
+2013-05-02 08:42:15,722 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2928
+2013-05-02 08:42:30,734 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2952
+2013-05-02 08:42:50,750 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 2064
+2013-05-02 08:43:05,756 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 3648
+2013-05-02 08:43:20,762 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 1872
+2013-05-02 08:43:35,774 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 744
+2013-05-02 08:43:50,789 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:44:05,795 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 96
+2013-05-02 08:44:20,806 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 96
+2013-05-02 08:44:35,812 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 24
+2013-05-02 08:44:50,824 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:45:05,835 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:45:20,851 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 504
+2013-05-02 08:45:35,860 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:45:50,866 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 744
+2013-05-02 08:46:05,882 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 96
+2013-05-02 08:46:20,888 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 240
+2013-05-02 08:46:35,897 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 96
+2013-05-02 08:46:50,903 tcollector[11963] WARNING: disk.py sent invalid data: raw read, raw write: 0 0
+2013-05-02 08:47:05,176 tcollector[11963] WARNING: shutting down, got signal 2
+2013-05-02 08:47:05,177 tcollector[11963] INFO: shutting down children
+2013-05-02 08:47:05,177 tcollector[11963] INFO: Waiting 5s for PID 11974 (mem.py) to exit...
+2013-05-02 08:47:06,178 tcollector[11963] INFO: Waiting 5s for PID 11975 (net.py) to exit...
+2013-05-02 08:47:07,180 tcollector[11963] INFO: Waiting 5s for PID 11977 (cpu.py) to exit...
+2013-05-02 08:47:08,181 tcollector[11963] INFO: Waiting 5s for PID 11978 (disk.py) to exit...
+2013-05-02 08:47:09,182 tcollector[11963] INFO: exiting
