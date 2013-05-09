@@ -146,3 +146,22 @@
 2013-05-02 08:47:07,180 tcollector[11963] INFO: Waiting 5s for PID 11977 (cpu.py) to exit...
 2013-05-02 08:47:08,181 tcollector[11963] INFO: Waiting 5s for PID 11978 (disk.py) to exit...
 2013-05-02 08:47:09,182 tcollector[11963] INFO: exiting
+2013-05-08 16:44:42,945 tcollector[14238] INFO: Loading config.py
+2013-05-08 16:44:43,353 tcollector[14238] INFO: Loading mysqlconf.py
+2013-05-08 16:44:43,759 tcollector[14238] WARNING: Tag "host" not specified, defaulting to emlab-lx1.
+2013-05-08 16:44:43,760 tcollector[14238] INFO: SenderThread startup complete
+2013-05-08 16:44:44,164 tcollector[14238] INFO: mem.py (interval=0) needs to be spawned
+2013-05-08 16:44:44,974 tcollector[14238] INFO: spawned mem.py (pid=14260)
+2013-05-08 16:44:44,975 tcollector[14238] INFO: net.py (interval=0) needs to be spawned
+2013-05-08 16:44:44,977 tcollector[14238] INFO: spawned net.py (pid=14262)
+2013-05-08 16:44:44,977 tcollector[14238] INFO: cpu.py (interval=0) needs to be spawned
+2013-05-08 16:44:44,979 tcollector[14238] INFO: spawned cpu.py (pid=14264)
+2013-05-08 16:44:44,979 tcollector[14238] INFO: dsk.py (interval=0) needs to be spawned
+2013-05-08 16:44:44,982 tcollector[14238] INFO: spawned dsk.py (pid=14265)
+2013-05-08 16:46:32,838 tcollector[14238] WARNING: shutting down, got signal 2
+2013-05-08 16:46:33,202 tcollector[14238] INFO: shutting down children
+2013-05-08 16:46:33,202 tcollector[14238] INFO: Waiting 5s for PID 14260 (mem.py) to exit...
+2013-05-08 16:46:34,204 tcollector[14238] INFO: Waiting 5s for PID 14262 (net.py) to exit...
+2013-05-08 16:46:35,205 tcollector[14238] INFO: Waiting 5s for PID 14264 (cpu.py) to exit...
+2013-05-08 16:46:36,206 tcollector[14238] INFO: Waiting 5s for PID 14265 (dsk.py) to exit...
+2013-05-08 16:46:37,207 tcollector[14238] INFO: exiting

@@ -34,8 +34,8 @@ def main():
 			TimeSpan = CurrT - PrevT
 			readb /= TimeSpan   #### Divide by time between 2 samples
 			writeb /= TimeSpan
-			sys.stdout.write ("tcollector.net %d %.2f type=%s\n" % (int(CurrT), readb, 'rKbps'))
-			sys.stdout.write ("tcollector.net %d %.2f type=%s\n" % (int(CurrT), writeb, 'wkBps'))
+			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrT), readb, 'rKbps'))
+			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrT), writeb, 'wkBps'))
 			sys.stdout.flush()
 			readb = 0
 			writeb = 0
