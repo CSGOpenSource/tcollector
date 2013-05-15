@@ -54,6 +54,7 @@ def main():
 				outb += outcounter - State[Dev]['outcounter']
 			State[Dev]['incounter'] = incounter
 			State[Dev]['outcounter'] = outcounter
+			P.wait()
 		#print('inb:', inb, '  outb:', outb) #!!!
 		if PrevTS > 0:  ####  print out results
 			inb *= 8  #### Convert bytes to bits

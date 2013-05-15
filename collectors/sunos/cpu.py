@@ -15,12 +15,11 @@ def main():
 			if UseData:  ###  Skip over first iostat entry because it is erroneous
 				for Line in Text.splitlines():
 					L = Line.strip()
-					if L[0].isdigit():    #!!!!  Data line
-						A = L.split()
-						CurrTS = time.time()
-						for i in range(len(Tags)):
-							sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), float(A[FieldLoc[i]]), Tags[i]))
-						sys.stdout.flush()
+					A = L.split()
+					CurrTS = time.time()
+					for i in range(len(Tags)):
+						sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), float(A[FieldLoc[i]]), Tags[i]))
+					sys.stdout.flush()
 			UseData = True
 
 	return

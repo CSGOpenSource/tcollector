@@ -16,7 +16,7 @@ def get_totmem():
 
 def realmem(TotMem):
 
-	Cmd = 'vmstat 1 1'
+	Cmd = 'vmstat 1 2'
 	P = subprocess.Popen(Cmd.split(), stdout=subprocess.PIPE)
 	P.wait()
 	Text = P.stdout.readlines()

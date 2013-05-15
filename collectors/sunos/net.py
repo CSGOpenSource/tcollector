@@ -12,8 +12,9 @@ def main():
 	while True:
 		CurrT = time.time()
 		P = subprocess.Popen(Cmd, stdout=subprocess.PIPE)
-		Text = P.stdout.readline().decode().strip()
-		for Line in Text.splitlines():
+		Text = P.stdout.readlines()
+		for L in Text:
+			Line = L.decode().strip()
 			A = Line.split()
 			if 'rbytes\t' in Line:
 				if A[0] in Net_Hold:
