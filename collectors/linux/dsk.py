@@ -3,10 +3,18 @@ import subprocess, time, sys
 
 def get_sector_size():
 
-	P = subprocess.Popen('cat /sys/block/sda/queue/hw_sector_size'.split(), stdout=subprocess.PIPE)
-	L = P.stdout.read()
-	SecSize = int(L.strip())
+	#P = subprocess.Popen('cat /sys/block/sda/queue/hw_sector_size'.split(), stdout=subprocess.PIPE)
+	P = subprocess.Popen('ls /sys/block'.split(), stdout=subprocess.PIPE)
 	P.wait()
+	L = P.stdout.readlines()
+	SecSize = dict()
+	for Item in L:
+		Dev = Item.decode().strip()
+		Text = 'cat /sys/block/' + Dev + '/queue/hw_sector_size'
+		P = subprocess.Popen(Text.split(), stdout=subprocess.PIPE)
+		P.wait()
+		L = P.stdout.read()
+		SecSize[Dev] = float(L.decode().strip())/1024.   #### SecSize in kBytes
 	return SecSize
 
 #______________________________________________________________________
@@ -15,7 +23,6 @@ def main():
 
 	Interval = 15
 	SecSize = get_sector_size()
-	kBFactor = float(SecSize)/1024.
 	State = dict()
 	PrevTS = 0
 	readLoc = 5
@@ -24,31 +31,31 @@ def main():
 		CurrTS = time.time()
 		P = subprocess.Popen('cat /proc/diskstats'.split(), stdout=subprocess.PIPE)
 		Text = P.stdout.read()
-		readsec = 0
-		writesec = 0
+		kBrTot = 0
+		kBwTot = 0
 		for Line in Text.decode().splitlines():
 			A = Line.split()
 			if len(A) > 8:  ####  Has enough data on line to parse
 				Dev = A[2]
-				SectorsRead = int(A[readLoc])
-				SectorsWritten = int(A[writeLoc])
+				if Dev in SecSize:  SSize = SecSize[Dev]
+				else:  SSize = SecSize['sda']
+				kBr = int(A[readLoc])*SSize
+				kBw = int(A[writeLoc])*SSize
 				if Dev in State:   #### Not first call, so data to be sent
-					readsec += SectorsRead - State[Dev]['readsec']
-					writesec += SectorsWritten - State[Dev]['writesec']
+					kBrTot += kBr - State[Dev]['kBr']
+					kBwTot += kBw - State[Dev]['kBw']
 				else:
 					State[Dev] = dict()
-				State[Dev]['readsec'] = SectorsRead
-				State[Dev]['writesec'] = SectorsWritten
+				State[Dev]['kBr'] = kBr
+				State[Dev]['kBw'] = kBw
 
-		#print ('raw read, raw write:', readsec, writesec) #!!!
+		#print ('raw read, raw write:', kBrTot, kBwTot) #!!!
 		if (PrevTS > 0) :
 			TimeSpan = CurrTS - PrevTS
-			readb = readsec*kBFactor  #### convert from sectors to KBytes
-			writeb = writesec*kBFactor
-			readb /= TimeSpan   #### Divide by time between 2 samples
-			writeb /= TimeSpan
-			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrTS), readb, 'rkBps'))
-			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrTS), writeb, 'wkBps'))
+			kBrTot /= TimeSpan   #### Divide by time between 2 samples
+			kBwTot /= TimeSpan
+			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrTS), kBrTot, 'rkBps'))
+			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrTS), kBwTot, 'wkBps'))
 			sys.stdout.flush()
 
 		P.wait()
