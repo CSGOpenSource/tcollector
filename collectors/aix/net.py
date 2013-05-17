@@ -61,8 +61,8 @@ def main():
 			outb *= 8  #### Convert bytes to bits
 			inb /= 1024*1024   ####  Convert bits to Mbits
 			outb /= 1024*1024   ####  Convert bits to Mbits
-			sys.stdout.write("tcollector.net %d %.2f type=inMBps\n" % (int(CurrTS), inb/(CurrTS-PrevTS)))
-			sys.stdout.write("tcollector.net %d %.2f type=outMBps\n" % (int(CurrTS), outb/(CurrTS-PrevTS)))
+			sys.stdout.write("tcollector.net %d %.2f type=inMbps\n" % (int(CurrTS), inb/(CurrTS-PrevTS)))
+			sys.stdout.write("tcollector.net %d %.2f type=outMbps\n" % (int(CurrTS), outb/(CurrTS-PrevTS)))
 			sys.stdout.flush()
 		PrevTS = CurrTS
 		SleepT = Interval - (time.time()-CurrTS)
