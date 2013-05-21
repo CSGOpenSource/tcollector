@@ -32,6 +32,8 @@ def main():
 				State['W'][Dev] = float(Val)
 		if PrevT > 0:
 			TimeSpan = CurrT - PrevT
+			readb /= 1024   ####  Convert from bytes to kBytes
+			writeb /= 1024
 			readb /= TimeSpan   #### Divide by time between 2 samples
 			writeb /= TimeSpan
 			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrT), readb, 'rKbps'))
