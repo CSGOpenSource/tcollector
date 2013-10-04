@@ -24,7 +24,7 @@ def realmem(TotMem):
 	A = Line.split()
 	PctMem = 400.*float(A[2])/TotMem
 	CurrTS = time.time()
-	sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctMem, 'realmem'))
+	sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctMem, 'realmem'))
 	sys.stdout.flush()
 
 	return
@@ -42,7 +42,7 @@ def swap():
 	P = A[1].replace('%','')
 	PctSwap = float(P)
 	CurrTS = time.time()
-	sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctSwap, 'swap'))
+	sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctSwap, 'swap'))
 	sys.stdout.flush()
 
 	return

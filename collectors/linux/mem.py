@@ -24,8 +24,8 @@ def main():
 				SwapFree = int(A[1])
 		PctMem = 100.*(float(MemTotal)-float(MemFree))/float(MemTotal)
 		PctSwap = 100.*(float(SwapTotal)-float(SwapFree))/float(SwapTotal)
-		sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctMem, 'realmem'))
-		sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctSwap, 'swap'))
+		sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctMem, 'realmem'))
+		sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctSwap, 'swap'))
 		sys.stdout.flush()
 		P.wait()
 		PrevTS = CurrTS

@@ -41,8 +41,8 @@ def main():
 			outb /= 1024*1024
 			inb /= TimeSpan   #### Divide by time between 2 samples
 			outb /= TimeSpan
-			sys.stdout.write ("tcollector.net %d %.2f type=%s\n" % (int(CurrTS), inb, 'inMbps'))
-			sys.stdout.write ("tcollector.net %d %.2f type=%s\n" % (int(CurrTS), outb, 'outMbps'))
+			sys.stdout.write ("stats.machine.net %d %.2f type=%s\n" % (int(CurrTS), inb, 'inMbps'))
+			sys.stdout.write ("stats.machine.net %d %.2f type=%s\n" % (int(CurrTS), outb, 'outMbps'))
 			sys.stdout.flush()
 
 		P.wait()

@@ -22,7 +22,7 @@ def main():
 						Val[i] = (float(A[FieldLoc[i]]) - State[Tags[i]]) / (CurrTS-PrevTS)
 						Sum += Val[i]
 					for i in range(len(Tags)):
-						sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), 100.*Val[i]/Sum, Tags[i]))
+						sys.stdout.write ("stats.machine.cpu %d %.2f type=%s\n" % (int(CurrTS), 100.*Val[i]/Sum, Tags[i]))
 					sys.stdout.flush()
 				for i in range(len(Tags)):
 					State[Tags[i]] = float(A[FieldLoc[i]])

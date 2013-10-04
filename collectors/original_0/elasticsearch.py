@@ -99,7 +99,7 @@ def main(argv):
                             for name, value in tags.iteritems())
     else:
       tags = ""
-    print ("elasticsearch.%s %d %s cluster=%s%s"
+    print ("stats.elasticsearch.%s %d %s cluster=%s%s"
            % (metric, ts, value, cluster_name, tags))
 
   while True:

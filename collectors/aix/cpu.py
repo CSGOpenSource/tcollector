@@ -30,9 +30,9 @@ def main():
 			Sum = 0
 			for i in range(3):
 				V = float(A[FieldLoc[i]])*CPURatio
-				sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), V, Tags[i]))
+				sys.stdout.write ("stats.machine.cpu %d %.2f type=%s\n" % (int(CurrTS), V, Tags[i]))
 				Sum += V
-			sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), 100.-Sum, Tags[3]))
+			sys.stdout.write ("stats.machine.cpu %d %.2f type=%s\n" % (int(CurrTS), 100.-Sum, Tags[3]))
 						
 			sys.stdout.flush()
 

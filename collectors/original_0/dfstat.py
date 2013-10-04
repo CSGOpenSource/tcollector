@@ -92,11 +92,11 @@ def main():
                     continue
 
                 mount = fields[6]
-                print ("df.1kblocks.total %d %s mount=%s fstype=%s"
+                print ("stats.machine.df.1kblocks.total %d %s mount=%s fstype=%s"
                        % (ts, fields[2], mount, fields[1]))
-                print ("df.1kblocks.used %d %s mount=%s fstype=%s"
+                print ("stats.machine.df.1kblocks.used %d %s mount=%s fstype=%s"
                        % (ts, fields[3], mount, fields[1]))
-                print ("df.1kblocks.free %d %s mount=%s fstype=%s"
+                print ("stats.machine.df.1kblocks.free %d %s mount=%s fstype=%s"
                        % (ts, fields[4], mount, fields[1]))
         else:
             print >> sys.stderr, "df -Pltk returned %r" % df_proc.returncode
@@ -112,11 +112,11 @@ def main():
                     continue
 
                 mount = fields[6]
-                print ("df.inodes.total %d %s mount=%s fstype=%s"
+                print ("stats.machine.df.inodes.total %d %s mount=%s fstype=%s"
                        % (ts, fields[2], mount, fields[1]))
-                print ("df.inodes.used %d %s mount=%s fstype=%s"
+                print ("stats.machine.df.inodes.used %d %s mount=%s fstype=%s"
                        % (ts, fields[3], mount, fields[1]))
-                print ("df.inodes.free %d %s mount=%s fstype=%s"
+                print ("stats.machine.df.inodes.free %d %s mount=%s fstype=%s"
                        % (ts, fields[4], mount, fields[1]))
         else:
             print >> sys.stderr, "df -Plti returned %r" % df_proc.returncode

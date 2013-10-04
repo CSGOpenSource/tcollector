@@ -54,8 +54,8 @@ def main():
 			TimeSpan = CurrTS - PrevTS
 			kBrTot /= TimeSpan   #### Divide by time between 2 samples
 			kBwTot /= TimeSpan
-			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrTS), kBrTot, 'rkBps'))
-			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrTS), kBwTot, 'wkBps'))
+			sys.stdout.write ("stats.machine.dsk %d %.2f type=%s\n" % (int(CurrTS), kBrTot, 'rkBps'))
+			sys.stdout.write ("stats.machine.dsk %d %.2f type=%s\n" % (int(CurrTS), kBwTot, 'wkBps'))
 			sys.stdout.flush()
 
 		P.wait()
