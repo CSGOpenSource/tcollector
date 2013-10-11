@@ -23,7 +23,7 @@ def realmem(TotMem):
 	Stuff, FreeMem = Text.split()
 	PctMem = 100. - 100.*(float(FreeMem)/TotMem)
 	CurrTS = time.time()
-	sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctMem, 'realmem'))
+	sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctMem, 'realmem'))
 	sys.stdout.flush()
 
 	return
@@ -40,9 +40,11 @@ def swap():
 		if not Line.startswith('swapfile'):   #### This line contains the real data
 			A = Line.strip().split()
 			L = len(A)
-			PctSwap = 100.*(float(A[L-2])-float(A[L-1]))/float(A[L-2])
+			TotSwap = float(A[L-2])
+			if TotSwap > 0.:  PctSwap = 100.*(float(A[L-2])-float(A[L-1]))/float(A[L-2])
+			else:  PctSwap = 0.
 			CurrTS = time.time()
-			sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctSwap, 'swap'))
+			sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctSwap, 'swap'))
 			sys.stdout.flush()
 			break
 
@@ -58,7 +60,7 @@ def zfsmem(TotMem, PageSize):
 	Stuff, ZFSMem = Text.split()
 	PctZFS = 100.*float(ZFSMem)/(PageSize*TotMem)
 	CurrTS = time.time()
-	sys.stdout.write ("tcollector.mem %d %.2f type=%s\n" % (int(CurrTS), PctZFS, 'zfsmem'))
+	sys.stdout.write ("stats.machine.mem %d %.2f type=%s\n" % (int(CurrTS), PctZFS, 'zfsmem'))
 	sys.stdout.flush()
 
 	return

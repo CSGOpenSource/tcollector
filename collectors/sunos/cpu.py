@@ -18,7 +18,7 @@ def main():
 					A = L.split()
 					CurrTS = time.time()
 					for i in range(len(Tags)):
-						sys.stdout.write ("tcollector.cpu %d %.2f type=%s\n" % (int(CurrTS), float(A[FieldLoc[i]]), Tags[i]))
+						sys.stdout.write ("stats.machine.cpu %d %.2f type=%s\n" % (int(CurrTS), float(A[FieldLoc[i]]), Tags[i]))
 					sys.stdout.flush()
 			UseData = True
 

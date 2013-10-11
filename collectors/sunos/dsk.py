@@ -5,9 +5,8 @@ def main():
 
 	Interval = 15
 	PrevT = 0
-	State = dict()
-	State['R'] = dict()
-	State['W'] = dict()
+	State = {'R': {}, 'W': {}}
+	PrevVal = {'R': {}, 'W': {}}
 	readb = 0
 	writeb = 0
 	Cmd = 'kstat -c disk -p'.split()
@@ -22,13 +21,23 @@ def main():
 				Dev = A[2]
 				Item, Val = A[3].split()
 				if Dev in State['R']:
-					readb += float(Val)-State['R'][Dev]
+					Diff = float(Val)-State['R'][Dev]
+					if Diff < 0.: Diff = PrevVal['R'][Dev]
+					readb += Diff
+					PrevVal['R'][Dev] = Diff
+				else:
+					PrevVal['R'][Dev] = 0.
 				State['R'][Dev] = float(Val)
 			elif 'nwritten' in Line:
 				Dev = A[2]
 				Item, Val = A[3].split()
 				if Dev in State['W']:
-					writeb += float(Val)-State['W'][Dev]
+					Diff = float(Val)-State['W'][Dev]
+					if Diff < 0.: Diff = PrevVal['W'][Dev]
+					writeb += Diff
+					PrevVal['W'][Dev] = Diff
+				else:
+					PrevVal['W'][Dev] = 0.
 				State['W'][Dev] = float(Val)
 		if PrevT > 0:
 			TimeSpan = CurrT - PrevT
@@ -36,8 +45,8 @@ def main():
 			writeb /= 1024
 			readb /= TimeSpan   #### Divide by time between 2 samples
 			writeb /= TimeSpan
-			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrT), readb, 'rKbps'))
-			sys.stdout.write ("tcollector.dsk %d %.2f type=%s\n" % (int(CurrT), writeb, 'wkBps'))
+			sys.stdout.write ("stats.machine.dsk %d %.2f type=%s\n" % (int(CurrT), readb, 'rkBps'))
+			sys.stdout.write ("stats.machine.dsk %d %.2f type=%s\n" % (int(CurrT), writeb, 'wkBps'))
 			sys.stdout.flush()
 			readb = 0
 			writeb = 0

@@ -23,13 +23,15 @@ def main():
 
 	Interval = 15
 	SecSize = get_sector_size()
-	State = dict()
+	State = {'R': {}, 'W': {}}
+	PrevVal = {'R': {}, 'W': {}}
 	PrevTS = 0
 	readLoc = 5
 	writeLoc = 9
 	while True:
 		CurrTS = time.time()
 		P = subprocess.Popen('cat /proc/diskstats'.split(), stdout=subprocess.PIPE)
+		P.wait()
 		Text = P.stdout.read()
 		kBrTot = 0
 		kBwTot = 0
@@ -41,13 +43,20 @@ def main():
 				else:  SSize = SecSize['sda']
 				kBr = int(A[readLoc])*SSize
 				kBw = int(A[writeLoc])*SSize
-				if Dev in State:   #### Not first call, so data to be sent
-					kBrTot += kBr - State[Dev]['kBr']
-					kBwTot += kBw - State[Dev]['kBw']
+				if Dev in State['R']:   #### Not first call, so data to be sent
+					Diff = kBr - State['R'][Dev]
+					if Diff < 0:  Diff = PrevVal['R'][Dev]
+					kBrTot += Diff
+					PrevVal['R'][Dev] = Diff
+					Diff = kBw - State['W'][Dev]
+					if Diff < 0:  Diff = PrevVal['W'][Dev]
+					kBwTot += Diff
+					PrevVal['W'][Dev] = Diff
 				else:
-					State[Dev] = dict()
-				State[Dev]['kBr'] = kBr
-				State[Dev]['kBw'] = kBw
+					PrevVal['R'][Dev] = 0.
+					PrevVal['W'][Dev] = 0.
+				State['R'][Dev] = kBr
+				State['W'][Dev] = kBw
 
 		#print ('raw read, raw write:', kBrTot, kBwTot) #!!!
 		if (PrevTS > 0) :
@@ -58,7 +67,6 @@ def main():
 			sys.stdout.write ("stats.machine.dsk %d %.2f type=%s\n" % (int(CurrTS), kBwTot, 'wkBps'))
 			sys.stdout.flush()
 
-		P.wait()
 		PrevTS = CurrTS
 		SleepT = Interval - (time.time()-CurrTS)
 		if SleepT > 0:  time.sleep(SleepT)

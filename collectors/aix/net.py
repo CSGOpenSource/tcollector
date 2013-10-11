@@ -2,7 +2,7 @@
 import subprocess, sys, time
 	
 def get_devlist():
-	DevList = []
+	IfaceList = []
 	P = subprocess.Popen('ifconfig -a'.split(), stdout=subprocess.PIPE)
 	D = P.stdout.read()
 	#print (D.decode())
@@ -10,10 +10,10 @@ def get_devlist():
 		if not Line.startswith('\t'):  ####  Start of info for a network device
 			if Line[0] != 'l':  ####  Not a loopback device
 				Loc = Line.find(':')
-				DevList.append(Line[:Loc])
+				IfaceList.append(Line[:Loc])
 	
-	#print (DevList)
-	return DevList
+	#print (IfaceList)
+	return IfaceList
 
 #________________________________________________________________
 
@@ -22,11 +22,11 @@ def parse_response(Text):
 	for Line in Text.decode().splitlines():
 		if Line.startswith('Bytes:'):
 			A = Line.split()
-			outcounter = int(A[1])
-			incounter = int(A[3])
+			sent_counter = int(A[1])
+			rec_counter = int(A[3])
 			break
 
-	return incounter, outcounter
+	return rec_counter, sent_counter
 
 #________________________________________________________________
 
@@ -34,35 +34,43 @@ def parse_response(Text):
 def main():
 
 	Interval = 15
-	DevList = get_devlist()
-	State = dict()
+	IfaceList = get_devlist()
+	State = {'R': {}, 'S': {}}
+	PrevVal = {'R': {}, 'S': {}}
 	PrevTS = 0
 
 	while True:
-		inb = 0
-		outb = 0
+		recb = 0
+		sentb = 0
 		CurrTS = time.time()
-		for Dev in DevList:  ####  Iterate on each device
-			Cmd = 'entstat -d ' + Dev
+		for Iface in IfaceList:  ####  Iterate on each device
+			Cmd = 'entstat -d ' + Iface
 			P = subprocess.Popen(Cmd.split(), stdout=subprocess.PIPE)
-			Text = P.stdout.read()
-			incounter, outcounter = parse_response(Text)
-			if Dev not in State:
-				State[Dev] = dict()
-			else: 
-				inb += incounter - State[Dev]['incounter']
-				outb += outcounter - State[Dev]['outcounter']
-			State[Dev]['incounter'] = incounter
-			State[Dev]['outcounter'] = outcounter
 			P.wait()
-		#print('inb:', inb, '  outb:', outb) #!!!
+			Text = P.stdout.read()
+			rec_counter, sent_counter = parse_response(Text)
+			if Iface in State['R']:
+				Diff = rec_counter - State['R'][Iface]
+				if Diff < 0.: Diff = PrevVal['R'][Iface]
+				recb += Diff
+				PrevVal['R'][Iface] = Diff
+				Diff = sent_counter - State['S'][Iface]
+				if Diff < 0.: Diff = PrevVal['S'][Iface]
+				sentb += Diff
+				PrevVal['S'][Iface] = Diff
+			else: 
+				PrevVal['R'][Iface] = 0.
+				PrevVal['S'][Iface] = 0.
+			State['R'][Iface] = rec_counter
+			State['S'][Iface] = sent_counter
+		#print('recb:', recb, '  sentb:', sentb) #!!!
 		if PrevTS > 0:  ####  print out results
-			inb *= 8  #### Convert bytes to bits
-			outb *= 8  #### Convert bytes to bits
-			inb /= 1024*1024   ####  Convert bits to Mbits
-			outb /= 1024*1024   ####  Convert bits to Mbits
-			sys.stdout.write("stats.machine.net %d %.2f type=inMbps\n" % (int(CurrTS), inb/(CurrTS-PrevTS)))
-			sys.stdout.write("stats.machine.net %d %.2f type=outMbps\n" % (int(CurrTS), outb/(CurrTS-PrevTS)))
+			recb *= 8  #### Convert bytes to bits
+			sentb *= 8  #### Convert bytes to bits
+			recb /= 1024*1024   ####  Convert bits to Mbits
+			sentb /= 1024*1024   ####  Convert bits to Mbits
+			sys.stdout.write("stats.machine.net %d %.2f type=inMbps\n" % (int(CurrTS), recb/(CurrTS-PrevTS)))
+			sys.stdout.write("stats.machine.net %d %.2f type=outMbps\n" % (int(CurrTS), sentb/(CurrTS-PrevTS)))
 			sys.stdout.flush()
 		PrevTS = CurrTS
 		SleepT = Interval - (time.time()-CurrTS)

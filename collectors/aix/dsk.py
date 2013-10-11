@@ -5,9 +5,8 @@ def main():
 
 	Interval = 15
 	PrevT = 0
-	State = dict()
-	State['R'] = dict()
-	State['W'] = dict()
+        State = {'R': {}, 'W': {}}
+        PrevVal = {'R': {}, 'W': {}}
 	readb = 0
 	writeb = 0
 	Cmd = 'iostat -s'.split()
@@ -22,8 +21,17 @@ def main():
 				A = Line.strip().split()
 				Dev = A[0]
 				if Dev in State['R']:
-					readb += float(A[4])-State['R'][Dev]
-					writeb += float(A[5])-State['W'][Dev]
+					Diff = float(A[4])-State['R'][Dev]
+					if Diff < 0.: Diff = PrevVal['R'][Dev]
+					readb += Diff
+					PrevVal['R'][Dev] = Diff
+					Diff = float(A[5])-State['W'][Dev]
+					if Diff < 0.: Diff = PrevVal['W'][Dev]
+					writeb += Diff
+					PrevVal['W'][Dev] = Diff
+				else:
+					PrevVal['R'][Dev] = 0.
+					PrevVal['W'][Dev] = 0.
 				State['R'][Dev] = float(A[4])
 				State['W'][Dev] = float(A[5])
 		if PrevT > 0:
